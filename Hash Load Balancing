@@ -1,0 +1,1 @@
+In hash LB, we will use source ip, source port, destination ip, destination port, and protocol (tcp or udp) as a hash key to get a HTTP server.
