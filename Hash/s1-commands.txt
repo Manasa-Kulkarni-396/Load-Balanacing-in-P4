@@ -1,0 +1,11 @@
+table_set_default forward nop
+table_set_default ecmp_group nop
+table_set_default ecmp_nhop nop
+table_set_default send_frame nop
+table_add forward set_nhop 10.0.1.1/32 => 00:00:00:00:01:01 1
+table_add forward set_nhop 10.0.2.2/32 => 00:00:00:00:02:02 2
+table_add forward set_nhop 10.0.3.3/32 => 00:00:00:00:03:03 3 
+table_add ecmp_group set_ecmp_select 10.0.0.1/32 => 0 2
+table_add ecmp_nhop set_ecmp_nhop 1 => 00:00:00:00:02:02 10.0.2.2 2
+table_add ecmp_nhop set_ecmp_nhop 2 => 00:00:00:00:03:03 10.0.3.3 3
+table_add send_frame rewrite_sip 1 => 10.0.0.1
