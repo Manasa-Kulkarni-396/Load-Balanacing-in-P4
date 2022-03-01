@@ -1,0 +1,20 @@
+table_set_default forward nop
+table_set_default ecmp_group nop
+table_set_default ecmp_nhop nop
+table_set_default send_frame nop
+table_add set_status1 _fail1 10.0.0.1/32 => 0
+table_add set_status2 _fail2 10.0.0.1/32 => 0
+table_add set_status3 _fail3 10.0.0.1/32 => 0
+table_add set_status4 _fail4 10.0.0.1/32 => 0
+table_add forward set_nhop 10.0.1.1/32 => 00:00:00:00:01:01 1
+table_add forward set_nhop 10.0.2.2/32 => 00:00:00:00:02:02 2
+table_add forward set_nhop 10.0.3.3/32 => 00:00:00:00:03:03 3
+table_add forward set_nhop 10.0.4.4/32 => 00:00:00:00:04:04 4
+table_add forward set_nhop 10.0.5.5/32 => 00:00:00:00:05:05 5
+table_add forward read_flowlet_select 10.0.0.1/32 =>
+table_add ecmp_group set_ecmp_select 10.0.0.1/32 => 0 4
+table_add ecmp_nhop set_ecmp_nhop 1 => 00:00:00:00:02:02 10.0.2.2 2
+table_add ecmp_nhop set_ecmp_nhop 2 => 00:00:00:00:03:03 10.0.3.3 3
+table_add ecmp_nhop set_ecmp_nhop 3 => 00:00:00:00:04:04 10.0.4.4 4
+table_add ecmp_nhop set_ecmp_nhop 4 => 00:00:00:00:05:05 10.0.5.5 5
+table_add send_frame rewrite_sip 1 => 10.0.0.1
