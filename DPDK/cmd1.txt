@@ -1,0 +1,2 @@
+table_add ip_forward forward 34.1.1.0/24 => 1
+table_add ip_forward forward 45.1.1.0/24 => 2
