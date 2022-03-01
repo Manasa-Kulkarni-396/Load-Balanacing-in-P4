@@ -1,0 +1,4 @@
+table_add setAction set_action 10.0.0.2 => 0
+table_add setAction set_action 10.0.0.1 => 1
+table_add phyforward forward 1 => 2
+table_add phyforward forward 2 => 1
